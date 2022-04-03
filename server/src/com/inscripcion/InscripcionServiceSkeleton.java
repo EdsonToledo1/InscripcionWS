@@ -11,32 +11,37 @@ public class InscripcionServiceSkeleton {
   /**
    * Auto generated method signature
    *
-   * @return param1
+   * @param registrarHorarioRequest
+   * @return registrarHorarioResponse
    */
-  public void registrarHorarioOperation() {
-
+  public com.inscripcion.RegistrarHorarioResponse registrarHorarioOperation(
+      com.inscripcion.RegistrarHorarioRequest registrarHorarioRequest) {
     // TODO : fill this with the necessary business logic
-
+    throw new java.lang.UnsupportedOperationException(
+        "Please implement " + this.getClass().getName() + "#registrarHorarioOperation");
   }
 
   /**
    * Auto generated method signature
    *
-   * @return param3
+   * @param validarPagoRequest
+   * @return validarPagoResponse
    */
-  public void validarPagoOperation() {
-
+  public com.inscripcion.ValidarPagoResponse validarPagoOperation(
+      com.inscripcion.ValidarPagoRequest validarPagoRequest) {
     // TODO : fill this with the necessary business logic
-
+    throw new java.lang.UnsupportedOperationException(
+        "Please implement " + this.getClass().getName() + "#validarPagoOperation");
   }
 
   /**
    * Auto generated method signature
    *
-   * @param mainRequest
+   * @param validarUsuarioRequest
    * @return mainResponse
    */
-  public com.inscripcion.MainResponse mainOperation(com.inscripcion.MainRequest mainRequest) {
+  public com.inscripcion.MainResponse mainOperation(
+      com.inscripcion.ValidarUsuarioRequest validarUsuarioRequest) {
     // TODO : fill this with the necessary business logic
     throw new java.lang.UnsupportedOperationException(
         "Please implement " + this.getClass().getName() + "#mainOperation");
@@ -45,11 +50,13 @@ public class InscripcionServiceSkeleton {
   /**
    * Auto generated method signature
    *
-   * @return param5
+   * @param validarUsuarioRequest0
+   * @return validarUsuarioResponse
    */
-  public void validarUsuarioOperation() {
-
+  public com.inscripcion.ValidarUsuarioResponse validarUsuarioOperation(
+      com.inscripcion.ValidarUsuarioRequest validarUsuarioRequest0) {
     // TODO : fill this with the necessary business logic
-
+    throw new java.lang.UnsupportedOperationException(
+        "Please implement " + this.getClass().getName() + "#validarUsuarioOperation");
   }
 }

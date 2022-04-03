@@ -5,20 +5,12 @@
 			<xs:include schemaLocation="inscripcion.xsd"/>
 		</xs:schema>
   </wsdl:types>
+  <wsdl:message name="mainMessageRequest">
+    <wsdl:part name="parameter" element="tns:validarUsuarioRequest">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="registrarHorarioMessageRequest">
     <wsdl:part name="parameter" element="tns:registrarHorarioRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="mainMessageResponse">
-    <wsdl:part name="parameter" element="tns:mainResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="validarUsuarioMessageResponse">
-    <wsdl:part name="parameter" element="tns:validarUsuarioResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="mainMessageRequest">
-    <wsdl:part name="parameter" element="tns:mainRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="validarUsuarioMessageRequest">
@@ -27,6 +19,14 @@
   </wsdl:message>
   <wsdl:message name="validarPagoMessageResponse">
     <wsdl:part name="parameter" element="tns:validarPagoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mainMessageResponse">
+    <wsdl:part name="parameter" element="tns:mainResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validarUsuarioMessageResponse">
+    <wsdl:part name="parameter" element="tns:validarUsuarioResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="validarPagoMessageRequest">
@@ -45,21 +45,21 @@
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="validarUsuarioOperation">
-      <wsdl:input message="tns:validarUsuarioRequest">
+      <wsdl:input message="tns:validarUsuarioMessageRequest">
     </wsdl:input>
-      <wsdl:output message="tns:validarUsuarioResponse">
+      <wsdl:output message="tns:validarUsuarioMessageResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="registrarHorarioOperation">
-      <wsdl:input message="tns:registrarHorarioRequest">
+      <wsdl:input message="tns:registrarHorarioMessageRequest">
     </wsdl:input>
-      <wsdl:output message="tns:registrarHorarioResponse">
+      <wsdl:output message="tns:registrarHorarioMessageResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="validarPagoOperation">
-      <wsdl:input message="tns:validarPagoRequest">
+      <wsdl:input message="tns:validarPagoMessageRequest">
     </wsdl:input>
-      <wsdl:output message="tns:validarPagoResponse">
+      <wsdl:output message="tns:validarPagoMessageResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>

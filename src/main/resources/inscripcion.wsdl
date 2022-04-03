@@ -6,7 +6,7 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="mainMessageRequest">
-		<wsdl:part name="parameter" element="tns:mainRequest"/>
+		<wsdl:part name="parameter" element="tns:validarUsuarioRequest"/>
 	</wsdl:message>
 	<wsdl:message name="mainMessageResponse">
 		<wsdl:part name="parameter" element="tns:mainResponse"/>
@@ -35,16 +35,16 @@
 			<wsdl:output message="tns:mainMessageResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="validarUsuarioOperation">
-			<wsdl:input message="tns:validarUsuarioRequest"/>
-			<wsdl:output message="tns:validarUsuarioResponse"/>
+			<wsdl:input message="tns:validarUsuarioMessageRequest"/>
+			<wsdl:output message="tns:validarUsuarioMessageResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="registrarHorarioOperation">
-			<wsdl:input message="tns:registrarHorarioRequest"/>
-			<wsdl:output message="tns:registrarHorarioResponse"/>
+			<wsdl:input message="tns:registrarHorarioMessageRequest"/>
+			<wsdl:output message="tns:registrarHorarioMessageResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="validarPagoOperation">
-			<wsdl:input message="tns:validarPagoRequest"/>
-			<wsdl:output message="tns:validarPagoResponse"/>
+			<wsdl:input message="tns:validarPagoMessageRequest"/>
+			<wsdl:output message="tns:validarPagoMessageResponse"/>
 		</wsdl:operation>	
 	</wsdl:portType>
 	<wsdl:binding name="inscripcionBinding" type="tns:inscripcionPortType">

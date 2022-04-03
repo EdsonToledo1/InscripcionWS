@@ -40,36 +40,74 @@ public class InscripcionServiceMessageReceiverInOut
 
         if ("registrarHorarioOperation".equals(methodName)) {
 
-          skel.registrarHorarioOperation();
-
-          envelope = getSOAPFactory(msgContext).getDefaultEnvelope();
-        } else if ("validarPagoOperation".equals(methodName)) {
-
-          skel.validarPagoOperation();
-
-          envelope = getSOAPFactory(msgContext).getDefaultEnvelope();
-        } else if ("mainOperation".equals(methodName)) {
-
-          com.inscripcion.MainResponse mainResponse27 = null;
-          com.inscripcion.MainRequest wrappedParam =
-              (com.inscripcion.MainRequest)
+          com.inscripcion.RegistrarHorarioResponse registrarHorarioResponse18 = null;
+          com.inscripcion.RegistrarHorarioRequest wrappedParam =
+              (com.inscripcion.RegistrarHorarioRequest)
                   fromOM(
                       msgContext.getEnvelope().getBody().getFirstElement(),
-                      com.inscripcion.MainRequest.class);
+                      com.inscripcion.RegistrarHorarioRequest.class);
 
-          mainResponse27 = skel.mainOperation(wrappedParam);
+          registrarHorarioResponse18 = skel.registrarHorarioOperation(wrappedParam);
 
           envelope =
               toEnvelope(
                   getSOAPFactory(msgContext),
-                  mainResponse27,
+                  registrarHorarioResponse18,
+                  false,
+                  new javax.xml.namespace.QName(
+                      "http://inscripcion.com", "registrarHorarioResponse"));
+        } else if ("validarPagoOperation".equals(methodName)) {
+
+          com.inscripcion.ValidarPagoResponse validarPagoResponse20 = null;
+          com.inscripcion.ValidarPagoRequest wrappedParam =
+              (com.inscripcion.ValidarPagoRequest)
+                  fromOM(
+                      msgContext.getEnvelope().getBody().getFirstElement(),
+                      com.inscripcion.ValidarPagoRequest.class);
+
+          validarPagoResponse20 = skel.validarPagoOperation(wrappedParam);
+
+          envelope =
+              toEnvelope(
+                  getSOAPFactory(msgContext),
+                  validarPagoResponse20,
+                  false,
+                  new javax.xml.namespace.QName("http://inscripcion.com", "validarPagoResponse"));
+        } else if ("mainOperation".equals(methodName)) {
+
+          com.inscripcion.MainResponse mainResponse22 = null;
+          com.inscripcion.ValidarUsuarioRequest wrappedParam =
+              (com.inscripcion.ValidarUsuarioRequest)
+                  fromOM(
+                      msgContext.getEnvelope().getBody().getFirstElement(),
+                      com.inscripcion.ValidarUsuarioRequest.class);
+
+          mainResponse22 = skel.mainOperation(wrappedParam);
+
+          envelope =
+              toEnvelope(
+                  getSOAPFactory(msgContext),
+                  mainResponse22,
                   false,
                   new javax.xml.namespace.QName("http://inscripcion.com", "mainResponse"));
         } else if ("validarUsuarioOperation".equals(methodName)) {
 
-          skel.validarUsuarioOperation();
+          com.inscripcion.ValidarUsuarioResponse validarUsuarioResponse24 = null;
+          com.inscripcion.ValidarUsuarioRequest wrappedParam =
+              (com.inscripcion.ValidarUsuarioRequest)
+                  fromOM(
+                      msgContext.getEnvelope().getBody().getFirstElement(),
+                      com.inscripcion.ValidarUsuarioRequest.class);
 
-          envelope = getSOAPFactory(msgContext).getDefaultEnvelope();
+          validarUsuarioResponse24 = skel.validarUsuarioOperation(wrappedParam);
+
+          envelope =
+              toEnvelope(
+                  getSOAPFactory(msgContext),
+                  validarUsuarioResponse24,
+                  false,
+                  new javax.xml.namespace.QName(
+                      "http://inscripcion.com", "validarUsuarioResponse"));
 
         } else {
           throw new java.lang.RuntimeException("method not found");
@@ -84,12 +122,64 @@ public class InscripcionServiceMessageReceiverInOut
 
   //
   private org.apache.axiom.om.OMElement toOM(
-      com.inscripcion.MainRequest param, boolean optimizeContent)
+      com.inscripcion.RegistrarHorarioRequest param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          com.inscripcion.MainRequest.MY_QNAME,
+          com.inscripcion.RegistrarHorarioRequest.MY_QNAME,
+          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private org.apache.axiom.om.OMElement toOM(
+      com.inscripcion.RegistrarHorarioResponse param, boolean optimizeContent)
+      throws org.apache.axis2.AxisFault {
+
+    try {
+      return param.getOMElement(
+          com.inscripcion.RegistrarHorarioResponse.MY_QNAME,
+          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private org.apache.axiom.om.OMElement toOM(
+      com.inscripcion.ValidarPagoRequest param, boolean optimizeContent)
+      throws org.apache.axis2.AxisFault {
+
+    try {
+      return param.getOMElement(
+          com.inscripcion.ValidarPagoRequest.MY_QNAME,
+          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private org.apache.axiom.om.OMElement toOM(
+      com.inscripcion.ValidarPagoResponse param, boolean optimizeContent)
+      throws org.apache.axis2.AxisFault {
+
+    try {
+      return param.getOMElement(
+          com.inscripcion.ValidarPagoResponse.MY_QNAME,
+          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private org.apache.axiom.om.OMElement toOM(
+      com.inscripcion.ValidarUsuarioRequest param, boolean optimizeContent)
+      throws org.apache.axis2.AxisFault {
+
+    try {
+      return param.getOMElement(
+          com.inscripcion.ValidarUsuarioRequest.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -107,6 +197,68 @@ public class InscripcionServiceMessageReceiverInOut
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
     }
+  }
+
+  private org.apache.axiom.om.OMElement toOM(
+      com.inscripcion.ValidarUsuarioResponse param, boolean optimizeContent)
+      throws org.apache.axis2.AxisFault {
+
+    try {
+      return param.getOMElement(
+          com.inscripcion.ValidarUsuarioResponse.MY_QNAME,
+          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+      org.apache.axiom.soap.SOAPFactory factory,
+      com.inscripcion.RegistrarHorarioResponse param,
+      boolean optimizeContent,
+      javax.xml.namespace.QName elementQName)
+      throws org.apache.axis2.AxisFault {
+    try {
+      org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+      emptyEnvelope
+          .getBody()
+          .addChild(param.getOMElement(com.inscripcion.RegistrarHorarioResponse.MY_QNAME, factory));
+
+      return emptyEnvelope;
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private com.inscripcion.RegistrarHorarioResponse wrapregistrarHorarioOperation() {
+    com.inscripcion.RegistrarHorarioResponse wrappedElement =
+        new com.inscripcion.RegistrarHorarioResponse();
+    return wrappedElement;
+  }
+
+  private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+      org.apache.axiom.soap.SOAPFactory factory,
+      com.inscripcion.ValidarPagoResponse param,
+      boolean optimizeContent,
+      javax.xml.namespace.QName elementQName)
+      throws org.apache.axis2.AxisFault {
+    try {
+      org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+      emptyEnvelope
+          .getBody()
+          .addChild(param.getOMElement(com.inscripcion.ValidarPagoResponse.MY_QNAME, factory));
+
+      return emptyEnvelope;
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private com.inscripcion.ValidarPagoResponse wrapvalidarPagoOperation() {
+    com.inscripcion.ValidarPagoResponse wrappedElement = new com.inscripcion.ValidarPagoResponse();
+    return wrappedElement;
   }
 
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
@@ -133,6 +285,31 @@ public class InscripcionServiceMessageReceiverInOut
     return wrappedElement;
   }
 
+  private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+      org.apache.axiom.soap.SOAPFactory factory,
+      com.inscripcion.ValidarUsuarioResponse param,
+      boolean optimizeContent,
+      javax.xml.namespace.QName elementQName)
+      throws org.apache.axis2.AxisFault {
+    try {
+      org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+      emptyEnvelope
+          .getBody()
+          .addChild(param.getOMElement(com.inscripcion.ValidarUsuarioResponse.MY_QNAME, factory));
+
+      return emptyEnvelope;
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private com.inscripcion.ValidarUsuarioResponse wrapvalidarUsuarioOperation() {
+    com.inscripcion.ValidarUsuarioResponse wrappedElement =
+        new com.inscripcion.ValidarUsuarioResponse();
+    return wrappedElement;
+  }
+
   /** get the default envelope */
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory) {
     return factory.getDefaultEnvelope();
@@ -143,18 +320,58 @@ public class InscripcionServiceMessageReceiverInOut
 
     try {
 
-      if (com.inscripcion.MainRequest.class.equals(type)) {
-
-        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = com.inscripcion.MainRequest.Factory.parse(reader);
-        reader.close();
-        return result;
-      }
-
       if (com.inscripcion.MainResponse.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
         java.lang.Object result = com.inscripcion.MainResponse.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
+
+      if (com.inscripcion.RegistrarHorarioRequest.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.RegistrarHorarioRequest.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
+
+      if (com.inscripcion.RegistrarHorarioResponse.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.RegistrarHorarioResponse.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
+
+      if (com.inscripcion.ValidarPagoRequest.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.ValidarPagoRequest.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
+
+      if (com.inscripcion.ValidarPagoResponse.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.ValidarPagoResponse.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
+
+      if (com.inscripcion.ValidarUsuarioRequest.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.ValidarUsuarioRequest.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
+
+      if (com.inscripcion.ValidarUsuarioResponse.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.ValidarUsuarioResponse.Factory.parse(reader);
         reader.close();
         return result;
       }
