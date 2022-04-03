@@ -11,6 +11,19 @@ public class InscripcionServiceSkeleton {
   /**
    * Auto generated method signature
    *
+   * @param validarAlumnoRequest
+   * @return validarAlumnoResponse
+   */
+  public com.inscripcion.ValidarAlumnoResponse validarAlumnoOperation(
+      com.inscripcion.ValidarAlumnoRequest validarAlumnoRequest) {
+    // TODO : fill this with the necessary business logic
+    throw new java.lang.UnsupportedOperationException(
+        "Please implement " + this.getClass().getName() + "#validarAlumnoOperation");
+  }
+
+  /**
+   * Auto generated method signature
+   *
    * @param registrarHorarioRequest
    * @return registrarHorarioResponse
    */
@@ -37,26 +50,12 @@ public class InscripcionServiceSkeleton {
   /**
    * Auto generated method signature
    *
-   * @param validarUsuarioRequest
+   * @param mainRequest
    * @return mainResponse
    */
-  public com.inscripcion.MainResponse mainOperation(
-      com.inscripcion.ValidarUsuarioRequest validarUsuarioRequest) {
+  public com.inscripcion.MainResponse mainOperation(com.inscripcion.MainRequest mainRequest) {
     // TODO : fill this with the necessary business logic
     throw new java.lang.UnsupportedOperationException(
         "Please implement " + this.getClass().getName() + "#mainOperation");
-  }
-
-  /**
-   * Auto generated method signature
-   *
-   * @param validarUsuarioRequest0
-   * @return validarUsuarioResponse
-   */
-  public com.inscripcion.ValidarUsuarioResponse validarUsuarioOperation(
-      com.inscripcion.ValidarUsuarioRequest validarUsuarioRequest0) {
-    // TODO : fill this with the necessary business logic
-    throw new java.lang.UnsupportedOperationException(
-        "Please implement " + this.getClass().getName() + "#validarUsuarioOperation");
   }
 }

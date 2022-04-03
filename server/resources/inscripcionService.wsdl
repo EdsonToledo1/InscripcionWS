@@ -6,15 +6,15 @@
 		</xs:schema>
   </wsdl:types>
   <wsdl:message name="mainMessageRequest">
-    <wsdl:part name="parameter" element="tns:validarUsuarioRequest">
+    <wsdl:part name="parameter" element="tns:mainRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validarAlumnoMessageResponse">
+    <wsdl:part name="parameter" element="tns:validarAlumnoResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="registrarHorarioMessageRequest">
     <wsdl:part name="parameter" element="tns:registrarHorarioRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="validarUsuarioMessageRequest">
-    <wsdl:part name="parameter" element="tns:validarUsuarioRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="validarPagoMessageResponse">
@@ -25,12 +25,12 @@
     <wsdl:part name="parameter" element="tns:mainResponse">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="validarUsuarioMessageResponse">
-    <wsdl:part name="parameter" element="tns:validarUsuarioResponse">
-    </wsdl:part>
-  </wsdl:message>
   <wsdl:message name="validarPagoMessageRequest">
     <wsdl:part name="parameter" element="tns:validarPagoRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validarAlumnoMessageRequest">
+    <wsdl:part name="parameter" element="tns:validarAlumnoRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="registrarHorarioMessageResponse">
@@ -44,10 +44,10 @@
       <wsdl:output message="tns:mainMessageResponse">
     </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="validarUsuarioOperation">
-      <wsdl:input message="tns:validarUsuarioMessageRequest">
+    <wsdl:operation name="validarAlumnoOperation">
+      <wsdl:input message="tns:validarAlumnoMessageRequest">
     </wsdl:input>
-      <wsdl:output message="tns:validarUsuarioMessageResponse">
+      <wsdl:output message="tns:validarAlumnoMessageResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="registrarHorarioOperation">
@@ -74,8 +74,8 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="validarUsuarioOperation">
-      <soap:operation soapAction="http://inscripcion.com/validarUsuarioOperation"/>
+    <wsdl:operation name="validarAlumnoOperation">
+      <soap:operation soapAction="http://inscripcion.com/validarAlumnoOperation"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>

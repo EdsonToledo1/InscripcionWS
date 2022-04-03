@@ -5,13 +5,14 @@
         <xs:sequence>
             <xs:element name="nombreAlumno" type="xs:string" />
             <xs:element name="numeroControl" type="xs:string" />
+            <xs:element name="carrera" type="xs:string"/>
             <xs:element name="semestre" type="xs:int" />
             <xs:element name="horario" type="tns:materiaType" maxOccurs="unbounded"/>
             <xs:element name="numeroCuenta" type="xs:string" />
         </xs:sequence>
     </xs:complexType>
 </xs:element>
-<xs:element name="validarUsuarioRequest">
+<xs:element name="validarAlumnoRequest">
     <xs:complexType>
         <xs:sequence>
             <xs:element name="numeroControl" type="xs:string"/>
@@ -39,10 +40,10 @@
         </xs:sequence>
     </xs:complexType>
 </xs:element>
-<xs:element name="validarUsuarioResponse">
+<xs:element name="validarAlumnoResponse">
     <xs:complexType>
         <xs:sequence>
-            <xs:element name="uuarioRegistrado" type="xs:boolean" />
+            <xs:element name="alumnoRegistrado" type="xs:boolean" />
             <xs:element name="mensaje" type="xs:string" />
         </xs:sequence>
     </xs:complexType>

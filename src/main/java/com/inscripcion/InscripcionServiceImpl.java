@@ -6,7 +6,7 @@
  */
 package com.inscripcion;
 /** InscripcionServiceSkeleton java skeleton for the axisService */
-public class InscripcionServiceSkeleton {
+public class InscripcionServiceImpl extends InscripcionServiceSkeleton {
 
   /**
    * Auto generated method signature

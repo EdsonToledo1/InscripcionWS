@@ -38,76 +38,75 @@ public class InscripcionServiceMessageReceiverInOut
                       op.getName().getLocalPart()))
               != null)) {
 
-        if ("registrarHorarioOperation".equals(methodName)) {
+        if ("validarAlumnoOperation".equals(methodName)) {
 
-          com.inscripcion.RegistrarHorarioResponse registrarHorarioResponse18 = null;
+          com.inscripcion.ValidarAlumnoResponse validarAlumnoResponse17 = null;
+          com.inscripcion.ValidarAlumnoRequest wrappedParam =
+              (com.inscripcion.ValidarAlumnoRequest)
+                  fromOM(
+                      msgContext.getEnvelope().getBody().getFirstElement(),
+                      com.inscripcion.ValidarAlumnoRequest.class);
+
+          validarAlumnoResponse17 = skel.validarAlumnoOperation(wrappedParam);
+
+          envelope =
+              toEnvelope(
+                  getSOAPFactory(msgContext),
+                  validarAlumnoResponse17,
+                  false,
+                  new javax.xml.namespace.QName("http://inscripcion.com", "validarAlumnoResponse"));
+        } else if ("registrarHorarioOperation".equals(methodName)) {
+
+          com.inscripcion.RegistrarHorarioResponse registrarHorarioResponse19 = null;
           com.inscripcion.RegistrarHorarioRequest wrappedParam =
               (com.inscripcion.RegistrarHorarioRequest)
                   fromOM(
                       msgContext.getEnvelope().getBody().getFirstElement(),
                       com.inscripcion.RegistrarHorarioRequest.class);
 
-          registrarHorarioResponse18 = skel.registrarHorarioOperation(wrappedParam);
+          registrarHorarioResponse19 = skel.registrarHorarioOperation(wrappedParam);
 
           envelope =
               toEnvelope(
                   getSOAPFactory(msgContext),
-                  registrarHorarioResponse18,
+                  registrarHorarioResponse19,
                   false,
                   new javax.xml.namespace.QName(
                       "http://inscripcion.com", "registrarHorarioResponse"));
         } else if ("validarPagoOperation".equals(methodName)) {
 
-          com.inscripcion.ValidarPagoResponse validarPagoResponse20 = null;
+          com.inscripcion.ValidarPagoResponse validarPagoResponse21 = null;
           com.inscripcion.ValidarPagoRequest wrappedParam =
               (com.inscripcion.ValidarPagoRequest)
                   fromOM(
                       msgContext.getEnvelope().getBody().getFirstElement(),
                       com.inscripcion.ValidarPagoRequest.class);
 
-          validarPagoResponse20 = skel.validarPagoOperation(wrappedParam);
+          validarPagoResponse21 = skel.validarPagoOperation(wrappedParam);
 
           envelope =
               toEnvelope(
                   getSOAPFactory(msgContext),
-                  validarPagoResponse20,
+                  validarPagoResponse21,
                   false,
                   new javax.xml.namespace.QName("http://inscripcion.com", "validarPagoResponse"));
         } else if ("mainOperation".equals(methodName)) {
 
-          com.inscripcion.MainResponse mainResponse22 = null;
-          com.inscripcion.ValidarUsuarioRequest wrappedParam =
-              (com.inscripcion.ValidarUsuarioRequest)
+          com.inscripcion.MainResponse mainResponse23 = null;
+          com.inscripcion.MainRequest wrappedParam =
+              (com.inscripcion.MainRequest)
                   fromOM(
                       msgContext.getEnvelope().getBody().getFirstElement(),
-                      com.inscripcion.ValidarUsuarioRequest.class);
+                      com.inscripcion.MainRequest.class);
 
-          mainResponse22 = skel.mainOperation(wrappedParam);
+          mainResponse23 = skel.mainOperation(wrappedParam);
 
           envelope =
               toEnvelope(
                   getSOAPFactory(msgContext),
-                  mainResponse22,
+                  mainResponse23,
                   false,
                   new javax.xml.namespace.QName("http://inscripcion.com", "mainResponse"));
-        } else if ("validarUsuarioOperation".equals(methodName)) {
-
-          com.inscripcion.ValidarUsuarioResponse validarUsuarioResponse24 = null;
-          com.inscripcion.ValidarUsuarioRequest wrappedParam =
-              (com.inscripcion.ValidarUsuarioRequest)
-                  fromOM(
-                      msgContext.getEnvelope().getBody().getFirstElement(),
-                      com.inscripcion.ValidarUsuarioRequest.class);
-
-          validarUsuarioResponse24 = skel.validarUsuarioOperation(wrappedParam);
-
-          envelope =
-              toEnvelope(
-                  getSOAPFactory(msgContext),
-                  validarUsuarioResponse24,
-                  false,
-                  new javax.xml.namespace.QName(
-                      "http://inscripcion.com", "validarUsuarioResponse"));
 
         } else {
           throw new java.lang.RuntimeException("method not found");
@@ -121,6 +120,32 @@ public class InscripcionServiceMessageReceiverInOut
   }
 
   //
+  private org.apache.axiom.om.OMElement toOM(
+      com.inscripcion.ValidarAlumnoRequest param, boolean optimizeContent)
+      throws org.apache.axis2.AxisFault {
+
+    try {
+      return param.getOMElement(
+          com.inscripcion.ValidarAlumnoRequest.MY_QNAME,
+          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  private org.apache.axiom.om.OMElement toOM(
+      com.inscripcion.ValidarAlumnoResponse param, boolean optimizeContent)
+      throws org.apache.axis2.AxisFault {
+
+    try {
+      return param.getOMElement(
+          com.inscripcion.ValidarAlumnoResponse.MY_QNAME,
+          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
   private org.apache.axiom.om.OMElement toOM(
       com.inscripcion.RegistrarHorarioRequest param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
@@ -174,12 +199,12 @@ public class InscripcionServiceMessageReceiverInOut
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      com.inscripcion.ValidarUsuarioRequest param, boolean optimizeContent)
+      com.inscripcion.MainRequest param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          com.inscripcion.ValidarUsuarioRequest.MY_QNAME,
+          com.inscripcion.MainRequest.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -199,17 +224,29 @@ public class InscripcionServiceMessageReceiverInOut
     }
   }
 
-  private org.apache.axiom.om.OMElement toOM(
-      com.inscripcion.ValidarUsuarioResponse param, boolean optimizeContent)
+  private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+      org.apache.axiom.soap.SOAPFactory factory,
+      com.inscripcion.ValidarAlumnoResponse param,
+      boolean optimizeContent,
+      javax.xml.namespace.QName elementQName)
       throws org.apache.axis2.AxisFault {
-
     try {
-      return param.getOMElement(
-          com.inscripcion.ValidarUsuarioResponse.MY_QNAME,
-          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+      org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+      emptyEnvelope
+          .getBody()
+          .addChild(param.getOMElement(com.inscripcion.ValidarAlumnoResponse.MY_QNAME, factory));
+
+      return emptyEnvelope;
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
     }
+  }
+
+  private com.inscripcion.ValidarAlumnoResponse wrapvalidarAlumnoOperation() {
+    com.inscripcion.ValidarAlumnoResponse wrappedElement =
+        new com.inscripcion.ValidarAlumnoResponse();
+    return wrappedElement;
   }
 
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
@@ -285,31 +322,6 @@ public class InscripcionServiceMessageReceiverInOut
     return wrappedElement;
   }
 
-  private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
-      org.apache.axiom.soap.SOAPFactory factory,
-      com.inscripcion.ValidarUsuarioResponse param,
-      boolean optimizeContent,
-      javax.xml.namespace.QName elementQName)
-      throws org.apache.axis2.AxisFault {
-    try {
-      org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-
-      emptyEnvelope
-          .getBody()
-          .addChild(param.getOMElement(com.inscripcion.ValidarUsuarioResponse.MY_QNAME, factory));
-
-      return emptyEnvelope;
-    } catch (org.apache.axis2.databinding.ADBException e) {
-      throw org.apache.axis2.AxisFault.makeFault(e);
-    }
-  }
-
-  private com.inscripcion.ValidarUsuarioResponse wrapvalidarUsuarioOperation() {
-    com.inscripcion.ValidarUsuarioResponse wrappedElement =
-        new com.inscripcion.ValidarUsuarioResponse();
-    return wrappedElement;
-  }
-
   /** get the default envelope */
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory) {
     return factory.getDefaultEnvelope();
@@ -319,6 +331,14 @@ public class InscripcionServiceMessageReceiverInOut
       throws org.apache.axis2.AxisFault {
 
     try {
+
+      if (com.inscripcion.MainRequest.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.MainRequest.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
 
       if (com.inscripcion.MainResponse.class.equals(type)) {
 
@@ -344,6 +364,22 @@ public class InscripcionServiceMessageReceiverInOut
         return result;
       }
 
+      if (com.inscripcion.ValidarAlumnoRequest.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.ValidarAlumnoRequest.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
+
+      if (com.inscripcion.ValidarAlumnoResponse.class.equals(type)) {
+
+        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
+        java.lang.Object result = com.inscripcion.ValidarAlumnoResponse.Factory.parse(reader);
+        reader.close();
+        return result;
+      }
+
       if (com.inscripcion.ValidarPagoRequest.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
@@ -356,22 +392,6 @@ public class InscripcionServiceMessageReceiverInOut
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
         java.lang.Object result = com.inscripcion.ValidarPagoResponse.Factory.parse(reader);
-        reader.close();
-        return result;
-      }
-
-      if (com.inscripcion.ValidarUsuarioRequest.class.equals(type)) {
-
-        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = com.inscripcion.ValidarUsuarioRequest.Factory.parse(reader);
-        reader.close();
-        return result;
-      }
-
-      if (com.inscripcion.ValidarUsuarioResponse.class.equals(type)) {
-
-        javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = com.inscripcion.ValidarUsuarioResponse.Factory.parse(reader);
         reader.close();
         return result;
       }

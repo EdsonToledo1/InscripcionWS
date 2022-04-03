@@ -57,6 +57,28 @@ public class MainRequest implements org.apache.axis2.databinding.ADBBean {
     this.localNumeroControl = param;
   }
 
+  /** field for Carrera */
+  protected java.lang.String localCarrera;
+
+  /**
+   * Auto generated getter method
+   *
+   * @return java.lang.String
+   */
+  public java.lang.String getCarrera() {
+    return localCarrera;
+  }
+
+  /**
+   * Auto generated setter method
+   *
+   * @param param Carrera
+   */
+  public void setCarrera(java.lang.String param) {
+
+    this.localCarrera = param;
+  }
+
   /** field for Semestre */
   protected int localSemestre;
 
@@ -222,6 +244,21 @@ public class MainRequest implements org.apache.axis2.databinding.ADBBean {
     } else {
 
       xmlWriter.writeCharacters(localNumeroControl);
+    }
+
+    xmlWriter.writeEndElement();
+
+    namespace = "http://inscripcion.com";
+    writeStartElement(null, namespace, "carrera", xmlWriter);
+
+    if (localCarrera == null) {
+      // write the nil attribute
+
+      throw new org.apache.axis2.databinding.ADBException("carrera cannot be null!!");
+
+    } else {
+
+      xmlWriter.writeCharacters(localCarrera);
     }
 
     xmlWriter.writeEndElement();
@@ -509,7 +546,7 @@ public class MainRequest implements org.apache.axis2.databinding.ADBBean {
 
         reader.next();
 
-        java.util.ArrayList list4 = new java.util.ArrayList();
+        java.util.ArrayList list5 = new java.util.ArrayList();
 
         while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
@@ -568,6 +605,33 @@ public class MainRequest implements org.apache.axis2.databinding.ADBBean {
         while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
         if (reader.isStartElement()
+            && new javax.xml.namespace.QName("http://inscripcion.com", "carrera")
+                .equals(reader.getName())) {
+
+          nillableValue =
+              reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+          if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+            throw new org.apache.axis2.databinding.ADBException(
+                "The element: " + "carrera" + "  cannot be null");
+          }
+
+          java.lang.String content = reader.getElementText();
+
+          object.setCarrera(
+              org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+
+          reader.next();
+
+        } // End of if for expected property start element
+        else {
+          // 1 - A start element we are not expecting indicates an invalid parameter was passed
+          throw new org.apache.axis2.databinding.ADBException(
+              "Unexpected subelement " + reader.getName());
+        }
+
+        while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+
+        if (reader.isStartElement()
             && new javax.xml.namespace.QName("http://inscripcion.com", "semestre")
                 .equals(reader.getName())) {
 
@@ -600,11 +664,11 @@ public class MainRequest implements org.apache.axis2.databinding.ADBBean {
 
           // Process the array and step past its final element's end.
 
-          list4.add(com.inscripcion.MateriaType.Factory.parse(reader));
+          list5.add(com.inscripcion.MateriaType.Factory.parse(reader));
 
           // loop until we find a start element that is not part of this array
-          boolean loopDone4 = false;
-          while (!loopDone4) {
+          boolean loopDone5 = false;
+          while (!loopDone5) {
             // We should be at the end element, but make sure
             while (!reader.isEndElement()) reader.next();
             // Step out of this element
@@ -613,14 +677,14 @@ public class MainRequest implements org.apache.axis2.databinding.ADBBean {
             while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
             if (reader.isEndElement()) {
               // two continuous end elements means we are exiting the xml structure
-              loopDone4 = true;
+              loopDone5 = true;
             } else {
               if (new javax.xml.namespace.QName("http://inscripcion.com", "horario")
                   .equals(reader.getName())) {
-                list4.add(com.inscripcion.MateriaType.Factory.parse(reader));
+                list5.add(com.inscripcion.MateriaType.Factory.parse(reader));
 
               } else {
-                loopDone4 = true;
+                loopDone5 = true;
               }
             }
           }
@@ -629,7 +693,7 @@ public class MainRequest implements org.apache.axis2.databinding.ADBBean {
           object.setHorario(
               (com.inscripcion.MateriaType[])
                   org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                      com.inscripcion.MateriaType.class, list4));
+                      com.inscripcion.MateriaType.class, list5));
 
         } // End of if for expected property start element
         else {

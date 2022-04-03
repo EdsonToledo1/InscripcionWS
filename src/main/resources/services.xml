@@ -6,6 +6,10 @@
         <parameter name="ServiceClass">com.inscripcion.InscripcionServiceImpl</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="validarAlumnoOperation" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://inscripcion.com">
+            <actionMapping>http://inscripcion.com/validarAlumnoOperation</actionMapping>
+            <outputActionMapping>http://inscripcion.com/inscripcionPortType/validarAlumnoOperationResponse</outputActionMapping>
+        </operation>
         <operation name="registrarHorarioOperation" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://inscripcion.com">
             <actionMapping>http://inscripcion.com/registrarHorarioOperation</actionMapping>
             <outputActionMapping>http://inscripcion.com/inscripcionPortType/registrarHorarioOperationResponse</outputActionMapping>
@@ -17,10 +21,6 @@
         <operation name="mainOperation" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://inscripcion.com">
             <actionMapping>http://inscripcion.com/mainOperation</actionMapping>
             <outputActionMapping>http://inscripcion.com/inscripcionPortType/mainOperationResponse</outputActionMapping>
-        </operation>
-        <operation name="validarUsuarioOperation" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://inscripcion.com">
-            <actionMapping>http://inscripcion.com/validarUsuarioOperation</actionMapping>
-            <outputActionMapping>http://inscripcion.com/inscripcionPortType/validarUsuarioOperationResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>

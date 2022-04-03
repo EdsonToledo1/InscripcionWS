@@ -1,38 +1,60 @@
 /**
- * ValidarUsuarioRequest.java
+ * ValidarAlumnoResponse.java
  *
  * <p>This file was auto-generated from WSDL by the Apache Axis2 version: 1.8.0 Built on : Aug 01,
  * 2021 (07:27:43 HST)
  */
 package com.inscripcion;
 
-/** ValidarUsuarioRequest bean class */
+/** ValidarAlumnoResponse bean class */
 @SuppressWarnings({"unchecked", "unused"})
-public class ValidarUsuarioRequest implements org.apache.axis2.databinding.ADBBean {
+public class ValidarAlumnoResponse implements org.apache.axis2.databinding.ADBBean {
 
   public static final javax.xml.namespace.QName MY_QNAME =
-      new javax.xml.namespace.QName("http://inscripcion.com", "validarUsuarioRequest", "ns1");
+      new javax.xml.namespace.QName("http://inscripcion.com", "validarAlumnoResponse", "ns1");
 
-  /** field for NumeroControl */
-  protected java.lang.String localNumeroControl;
+  /** field for AlumnoRegistrado */
+  protected boolean localAlumnoRegistrado;
+
+  /**
+   * Auto generated getter method
+   *
+   * @return boolean
+   */
+  public boolean getAlumnoRegistrado() {
+    return localAlumnoRegistrado;
+  }
+
+  /**
+   * Auto generated setter method
+   *
+   * @param param AlumnoRegistrado
+   */
+  public void setAlumnoRegistrado(boolean param) {
+
+    this.localAlumnoRegistrado = param;
+  }
+
+  /** field for Mensaje */
+  protected java.lang.String localMensaje;
 
   /**
    * Auto generated getter method
    *
    * @return java.lang.String
    */
-  public java.lang.String getNumeroControl() {
-    return localNumeroControl;
+  public java.lang.String getMensaje() {
+    return localMensaje;
   }
 
   /**
    * Auto generated setter method
    *
-   * @param param NumeroControl
+   * @param param Mensaje
    */
-  public void setNumeroControl(java.lang.String param) {
+  public void setMensaje(java.lang.String param) {
 
-    this.localNumeroControl = param;
+    this.localMensaje = param;
   }
 
   /**
@@ -74,29 +96,43 @@ public class ValidarUsuarioRequest implements org.apache.axis2.databinding.ADBBe
             "xsi",
             "http://www.w3.org/2001/XMLSchema-instance",
             "type",
-            namespacePrefix + ":validarUsuarioRequest",
+            namespacePrefix + ":validarAlumnoResponse",
             xmlWriter);
       } else {
         writeAttribute(
             "xsi",
             "http://www.w3.org/2001/XMLSchema-instance",
             "type",
-            "validarUsuarioRequest",
+            "validarAlumnoResponse",
             xmlWriter);
       }
     }
 
     namespace = "http://inscripcion.com";
-    writeStartElement(null, namespace, "numeroControl", xmlWriter);
+    writeStartElement(null, namespace, "alumnoRegistrado", xmlWriter);
 
-    if (localNumeroControl == null) {
+    if (false) {
+
+      throw new org.apache.axis2.databinding.ADBException("alumnoRegistrado cannot be null!!");
+
+    } else {
+      xmlWriter.writeCharacters(
+          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localAlumnoRegistrado));
+    }
+
+    xmlWriter.writeEndElement();
+
+    namespace = "http://inscripcion.com";
+    writeStartElement(null, namespace, "mensaje", xmlWriter);
+
+    if (localMensaje == null) {
       // write the nil attribute
 
-      throw new org.apache.axis2.databinding.ADBException("numeroControl cannot be null!!");
+      throw new org.apache.axis2.databinding.ADBException("mensaje cannot be null!!");
 
     } else {
 
-      xmlWriter.writeCharacters(localNumeroControl);
+      xmlWriter.writeCharacters(localMensaje);
     }
 
     xmlWriter.writeEndElement();
@@ -298,9 +334,9 @@ public class ValidarUsuarioRequest implements org.apache.axis2.databinding.ADBBe
      * its end element If this object is a complex type, the reader is positioned at the end element
      * of its outer element
      */
-    public static ValidarUsuarioRequest parse(javax.xml.stream.XMLStreamReader reader)
+    public static ValidarAlumnoResponse parse(javax.xml.stream.XMLStreamReader reader)
         throws java.lang.Exception {
-      ValidarUsuarioRequest object = new ValidarUsuarioRequest();
+      ValidarAlumnoResponse object = new ValidarAlumnoResponse();
 
       int event;
       javax.xml.namespace.QName currentQName = null;
@@ -325,10 +361,10 @@ public class ValidarUsuarioRequest implements org.apache.axis2.databinding.ADBBe
 
             java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
 
-            if (!"validarUsuarioRequest".equals(type)) {
+            if (!"validarAlumnoResponse".equals(type)) {
               // find namespace for the prefix
               java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-              return (ValidarUsuarioRequest)
+              return (ValidarAlumnoResponse)
                   com.inscripcion.ExtensionMapper.getTypeObject(nsUri, type, reader);
             }
           }
@@ -343,19 +379,46 @@ public class ValidarUsuarioRequest implements org.apache.axis2.databinding.ADBBe
         while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
         if (reader.isStartElement()
-            && new javax.xml.namespace.QName("http://inscripcion.com", "numeroControl")
+            && new javax.xml.namespace.QName("http://inscripcion.com", "alumnoRegistrado")
                 .equals(reader.getName())) {
 
           nillableValue =
               reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
           if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
             throw new org.apache.axis2.databinding.ADBException(
-                "The element: " + "numeroControl" + "  cannot be null");
+                "The element: " + "alumnoRegistrado" + "  cannot be null");
           }
 
           java.lang.String content = reader.getElementText();
 
-          object.setNumeroControl(
+          object.setAlumnoRegistrado(
+              org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
+
+          reader.next();
+
+        } // End of if for expected property start element
+        else {
+          // 1 - A start element we are not expecting indicates an invalid parameter was passed
+          throw new org.apache.axis2.databinding.ADBException(
+              "Unexpected subelement " + reader.getName());
+        }
+
+        while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+
+        if (reader.isStartElement()
+            && new javax.xml.namespace.QName("http://inscripcion.com", "mensaje")
+                .equals(reader.getName())) {
+
+          nillableValue =
+              reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+          if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+            throw new org.apache.axis2.databinding.ADBException(
+                "The element: " + "mensaje" + "  cannot be null");
+          }
+
+          java.lang.String content = reader.getElementText();
+
+          object.setMensaje(
               org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
 
           reader.next();
