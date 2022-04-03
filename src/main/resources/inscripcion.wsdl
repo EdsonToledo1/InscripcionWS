@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://inscripcion.com" targetNamespace="http://inscripcion.com">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://inscripcion.com" elementFormDefault="qualified">
+			<xs:include schemaLocation="inscripcion.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="mainMessageRequest">
+		<wsdl:part name="parameter" element="tns:mainRequest"/>
+	</wsdl:message>
+	<wsdl:message name="mainMessageResponse">
+		<wsdl:part name="parameter" element="tns:mainResponse"/>
+	</wsdl:message>
+	<wsdl:message name="validarUsuarioMessageRequest">
+		<wsdl:part name="parameter" element="tns:validarUsuarioRequest"/>
+	</wsdl:message>
+	<wsdl:message name="validarUsuarioMessageResponse">
+		<wsdl:part name="parameter" element="tns:validarUsuarioResponse"/>
+	</wsdl:message>
+    <wsdl:message name="registrarHorarioMessageRequest">
+		<wsdl:part name="parameter" element="tns:registrarHorarioRequest"/>
+	</wsdl:message>
+    <wsdl:message name="registrarHorarioMessageResponse">
+		<wsdl:part name="parameter" element="tns:registrarHorarioResponse"/>
+	</wsdl:message>
+    <wsdl:message name="validarPagoMessageRequest">
+		<wsdl:part name="parameter" element="tns:validarPagoRequest"/>
+	</wsdl:message>
+    <wsdl:message name="validarPagoMessageResponse">
+		<wsdl:part name="parameter" element="tns:validarPagoResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="inscripcionPortType">
+		<wsdl:operation name="mainOperation">
+			<wsdl:input message="tns:mainMessageRequest"/>
+			<wsdl:output message="tns:mainMessageResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="validarUsuarioOperation">
+			<wsdl:input message="tns:validarUsuarioRequest"/>
+			<wsdl:output message="tns:validarUsuarioResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="registrarHorarioOperation">
+			<wsdl:input message="tns:registrarHorarioRequest"/>
+			<wsdl:output message="tns:registrarHorarioResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="validarPagoOperation">
+			<wsdl:input message="tns:validarPagoRequest"/>
+			<wsdl:output message="tns:validarPagoResponse"/>
+		</wsdl:operation>	
+	</wsdl:portType>
+	<wsdl:binding name="inscripcionBinding" type="tns:inscripcionPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="mainOperation">
+			<soap:operation soapAction="http://inscripcion.com/mainOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="validarUsuarioOperation">
+			<soap:operation soapAction="http://inscripcion.com/validarUsuarioOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="registrarHorarioOperation">
+			<soap:operation soapAction="http://inscripcion.com/registrarHorarioOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="validarPagoOperation">
+			<soap:operation soapAction="http://inscripcion.com/validarPagoOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="inscripcionService">
+		<wsdl:port name="inscripcionPort" binding="tns:inscripcionBinding">
+			<soap:address location="http://localhost:8080/axis2/services/inscripcionService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
