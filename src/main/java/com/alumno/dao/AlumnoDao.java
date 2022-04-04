@@ -28,6 +28,7 @@ public class AlumnoDao {
         	someAlumnoDto.setSemestre((Integer)map.get("semestre"));
             alumnos.add(someAlumnoDto);            
         }
+        
         return alumnos;
     }
 }
